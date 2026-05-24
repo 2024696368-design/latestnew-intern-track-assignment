@@ -22,5 +22,6 @@ Modern dashboard style
 
 c.Instructions to test login.
 EMAIL: student@gmail.com, Password: 12345
+PLEASE ADD APPLICATION IN "APPLICATION PAGE" TO UPDATE CHARTS.
 
 d.Frameworks/libraries useD : getBootstrap, ApexCharts, Vanta.js, Bootstrap Icon, Google Fonts, LocalStorage system
