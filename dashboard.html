@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>InternTrack | Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="dashboard.html">
+                <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="8" y="8" width="84" height="84" rx="18" fill="#0d6efd"/>
+                    <path d="M30 50L43 63L70 36" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>InternTrack</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dashboard.html">
+                            <i class="bi bi-grid-fill me-1"></i> Dashboard
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="applications.html">
+                            <i class="bi bi-briefcase-fill me-1"></i> Applications
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="tasks.html">
+                            <i class="bi bi-list-check me-1"></i> Tasks
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">
+                            <i class="bi bi-person-fill me-1"></i> Profile
+                        </a>
+                    </li>
+
+                    <!-- DARK MODE -->
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <button class="dark-mode-toggle" id="darkModeToggle">
+                            <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+                        </button>
+                    </li>
+
+                    <!-- LOGOUT -->
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a href="index.html" class="btn btn-danger d-flex align-items-center gap-2 px-3">
+                            <i class="bi bi-box-arrow-right"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- PAGE HEADER -->
+    <section class="dashboard-header py-4 py-lg-5"
+        id="pageHeader"
+        style="background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <div class="container position-relative">
+            <div class="row align-items-center gy-4">
+                <div class="col-lg-8 d-flex justify-content-center align-items-center vh-50 text-center text-lg-start">
+
+                    <div>
+                        <h1 class="fw-bold mb-2">
+                            Internship Dashboard
+                        </h1>
+
+                        <p class="dashboard-subtext text-muted mb-50">
+                            Track your internship applications, interview progress, and upcoming tasks in one place.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- DASHBOARD CONTENT -->
+    <section class="pb-5">
+
+        <div class="container">
+
+            <!-- SUMMARY CARDS -->
+            <div class="row g-4 mb-4">
+
+                <div class="col-12 col-sm-6 col-xl-3">
+
+                    <div class="dashboard-card card border-0 shadow-sm h-100" data-type="applications">
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+
+                                <div>
+                                    <p class="text-muted mb-1">Applications</p>
+                                    <h2 class="fw-bold mb-0" id="totalApplications">0</h2>
+                                </div>
+
+                                <div class="icon-box bg-primary-subtle text-primary">
+                                    <i class="bi bi-briefcase-fill"></i>
+                                </div>
+
+                            </div>
+
+                            <small class="text-success">
+                                <i class="bi bi-arrow-up"></i>
+                                12% increase this month
+                            </small>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-xl-3">
+
+                    <div class="dashboard-card card border-0 shadow-sm h-100" data-type="interviews">
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+
+                                <div>
+                                    <p class="text-muted mb-1">Interviews</p>
+                                    <h2 class="fw-bold mb-0" id="totalInterviews">0</h2>
+                                </div>
+
+                                <div class="icon-box bg-warning-subtle text-warning">
+                                    <i class="bi bi-camera-video-fill"></i>
+                                </div>
+
+                            </div>
+
+                            <small class="text-muted">
+                                2 upcoming this week
+                            </small>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-xl-3">
+
+                    <div class="dashboard-card card border-0 shadow-sm h-100" data-type="accepted">
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+
+                                <div>
+                                    <p class="text-muted mb-1">Accepted</p>
+                                    <h2 class="fw-bold mb-0" id="totalAccepted">0</h2>
+                                </div>
+
+                                <div class="icon-box bg-success-subtle text-success">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </div>
+
+                            </div>
+
+                            <small class="text-success">
+                                Great progress
+                            </small>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="col-12 col-sm-6 col-xl-3">
+
+                    <div class="dashboard-card card border-0 shadow-sm h-100" data-type="pending">
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+
+                                <div>
+                                    <p class="text-muted mb-1">Pending</p>
+                                    <h2 class="fw-bold mb-0" id="totalPending">0</h2>
+                                </div>
+
+                                <div class="icon-box bg-danger-subtle text-danger">
+                                    <i class="bi bi-hourglass-split"></i>
+                                </div>
+
+                            </div>
+
+                            <small class="text-muted">
+                                Waiting for responses
+                            </small>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHART + ACTIVITY -->
+            <div class="row g-4 mb-4">
+
+                <!-- CHART -->
+                <div class="col-lg-8">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                    <h5 class="fw-semibold mb-1">Application Statistics</h5>
+                                    <p class="text-muted small mb-0">
+                                        Weekly internship applications submitted.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div id="applicationChart"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RECENT ACTIVITY -->
+                <div class="col-lg-4">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body">
+
+                            <h5 class="fw-semibold mb-4">Recent Activity</h5>
+
+                            <div id="activityList"></div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- TABLE -->
+            <div class="card border-0 shadow-sm">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-4">
+
+                        <div>
+                            <h5 class="fw-semibold mb-1">Latest Applications</h5>
+                            <p class="text-muted small mb-0">
+                                Recent internship applications overview.
+                            </p>
+                        </div>
+
+                        <button onclick="goToApplications()" class="btn btn-outline-primary btn-sm">
+                            View All
+                        </button>
+
+                    </div>
+
+                    <div class="table-responsive">
+
+                        <table class="table align-middle table-hover">
+
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Position</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+                                    <td>Intel</td>
+                                    <td>Frontend Intern</td>
+                                    <td>
+                                        <span class="badge bg-warning text-dark">
+                                            Pending
+                                        </span>
+                                    </td>
+                                    <td>12 Aug 2026</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Shopee</td>
+                                    <td>UI/UX Intern</td>
+                                    <td>
+                                        <span class="badge bg-success">
+                                            Accepted
+                                        </span>
+                                    </td>
+                                    <td>10 Aug 2026</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Petronas</td>
+                                    <td>System Analyst Intern</td>
+                                    <td>
+                                        <span class="badge bg-danger">
+                                            Rejected
+                                        </span>
+                                    </td>
+                                    <td>08 Aug 2026</td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer-section py-4 border-top bg-body-tertiary">
+        <div class="container text-center">
+            <small>© 2026 InternTrack System</small>
+        </div>
+    </footer>
+
+    
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- recent activities js -->
+    <script>
+    function loadRecentActivity() {
+        const applications = JSON.parse(localStorage.getItem("applications")) || [];
+
+        const container = document.getElementById("activityList");
+        container.innerHTML = "";
+
+        if (applications.length === 0) {
+            container.innerHTML = `
+                <p class="text-muted">No activity yet.</p>
+            `;
+            return;
+        }
+
+        // sort newest first
+        const sorted = [...applications].sort((a, b) =>
+            new Date(b.date) - new Date(a.date)
+        );
+
+        const latest = sorted.slice(0, 3);
+
+        latest.forEach(app => {
+            let color = "bg-warning";
+
+            if (app.status === "Accepted") color = "bg-success";
+            else if (app.status === "Rejected") color = "bg-danger";
+            else if (app.status === "Interview") color = "bg-primary";
+
+            container.innerHTML += `
+                <div class="activity-item d-flex mb-4">
+                    <div class="activity-dot ${color}"></div>
+                    <div>
+                        <h6 class="mb-1">${app.status} - ${app.company}</h6>
+                        <small class="text-muted">
+                            ${app.position} • ${app.date}
+                        </small>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    </script>
+
+
+    <!-- Chart.js -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <!-- ApexCharts-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <!-- APEXCHARTS -->
+    <script>
+    function getWeeklyData(applications) {
+        const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+        const counts = new Array(7).fill(0);
+        applications.forEach(app => {
+            const date = new Date(app.date);
+            if (!isNaN(date)) {
+                const dayIndex = (date.getDay() + 6) % 7;
+                counts[dayIndex]++;
+            }
+        });
+        return { days, counts };
+    }
+    function loadChart() {
+        const applications = JSON.parse(localStorage.getItem("applications")) || [];
+        const isDark = document.documentElement.getAttribute("data-bs-theme") === "dark";
+        const { days, counts } = getWeeklyData(applications);
+        const options = {
+            series: [{
+                name: "Applications",
+                data: counts
+            }],
+            chart: {
+                type: "area",
+                height: 350,
+                toolbar: { show: false },
+                background: "transparent"
+            },
+            theme: {
+                mode: isDark ? "dark" : "light"
+            },
+            stroke: {
+                curve: "smooth",
+                width: 3
+            },
+            dataLabels: {
+                enabled: false
+            },
+            xaxis: {
+                categories: days,
+                labels: {
+                    style: {
+                        colors: isDark ? "#dee2e6" : "#6c757d"
+                    }
+                }
+            },
+            yaxis: {
+                labels: {
+                    style: {
+                        colors: isDark ? "#dee2e6" : "#6c757d"
+                    }
+                }
+            },
+            grid: {
+                borderColor: isDark ? "#495057" : "#e9ecef"
+            },
+            tooltip: {
+                theme: isDark ? "dark" : "light",
+                y: {
+                    formatter: val => val + " applications"
+                }
+            }
+        };
+        document.querySelector("#applicationChart").innerHTML = "";
+        const chart = new ApexCharts(
+            document.querySelector("#applicationChart"),
+            options
+        );
+        chart.render();
+    }
+    </script>
+
+    <!-- DARK MODE -->
+    <script>
+
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const htmlElement = document.documentElement;
+
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', currentTheme);
+        updateIcon(currentTheme);
+        loadChart();
+        loadRecentActivity();
+
+        darkModeToggle.addEventListener('click', ()=> {
+
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+            window.addEventListener("load", () => {
+                loadChart();
+                loadRecentActivity();
+            });
+
+        });
+        function updateIcon(theme) {
+
+            if(theme === 'dark') {
+                darkModeIcon.className = 'bi bi-sun-fill';
+            } else {
+                darkModeIcon.className = 'bi bi-moon-stars-fill';
+            }
+        }
+    </script>
+
+    <script>
+        document.querySelectorAll('.dashboard-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const type = card.dataset.type;
+
+                localStorage.setItem('filterStatus', type);
+
+                window.location.href = 'applications.html';
+            });
+        });
+
+        function goToApplications(){
+            localStorage.removeItem('filterStatus');
+            window.location.href = 'applications.html';
+        }
+    </script>
+
+<!-- const application -->
+    <script>
+    const applications = JSON.parse(localStorage.getItem("applications")) || [];
+
+    // helper function
+    function countStatus(status) {
+        return applications.filter(app => app.status === status).length;
+    }
+
+    // totals
+    const totalApplications = applications.length;
+    const totalAccepted = countStatus("Accepted");
+    const totalPending = countStatus("Pending");
+    const totalInterviews = countStatus("Interview");
+
+    // update HTML
+    document.getElementById("totalApplications").innerText = totalApplications;
+    document.getElementById("totalAccepted").innerText = totalAccepted;
+    document.getElementById("totalPending").innerText = totalPending;
+    document.getElementById("totalInterviews").innerText = totalInterviews;
+    </script>
+
+</body>
+</html>
+

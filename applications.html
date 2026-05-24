@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InternTrack | Applications</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="dashboard.html">
+                <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="8" y="8" width="84" height="84" rx="18" fill="#0d6efd"/>
+                    <path d="M30 50L43 63L70 36" stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>InternTrack</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                    <!-- DASHBOARD -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="bi bi-grid-fill me-1"></i> Dashboard
+                        </a>
+                    </li>
+                    <!-- APPLICATIONS -->
+                    <li class="nav-item">
+                        <a class="nav-link active" href="applications.html">
+                            <i class="bi bi-briefcase-fill me-1"></i> Applications
+                        </a>
+                    </li>
+                    <!-- TASKS -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="tasks.html">
+                            <i class="bi bi-list-check me-1"></i> Tasks
+                        </a>
+                    </li>
+                    <!-- PROFILE -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="profile.html">
+                            <i class="bi bi-person-circle me-1"></i> Profile
+                        </a>
+                    </li>
+                    <!-- DARK MODE -->
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <button class="dark-mode-toggle" id="darkModeToggle">
+                            <i class="bi bi-moon-stars-fill" id="darkModeIcon"></i>
+                        </button>
+                    </li>
+                    <!-- LOGOUT -->
+                    <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                        <a href="index.html" class="btn btn-danger d-flex align-items-center gap-2 px-3">
+                            <i class="bi bi-box-arrow-right"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <section class="dashboard-header py-4 py-lg-5">
+        <div class="container">
+            <div class="row align-items-center gy-3">
+                <div class="col-lg-8">
+                    <h1 class="fw-bold mb-2">Internship Applications</h1>
+                    <p class="dashboard-subtext text-muted mb-0">
+                        Manage and monitor your internship applications efficiently.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <button class="btn btn-primary px-4 py-2" data-bs-toggle="modal" data-bs-target="#applicationModal">
+                        <i class="bi bi-plus-circle-fill me-2"></i>
+                        Add New Application
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="pb-5">
+        <div class="container">
+
+            <!-- FILTERS -->
+            <div class="card border-0 shadow-sm mb-4">
+                <div class="card-body">
+                    <div class="row g-3 align-items-center">
+                        <div class="col-lg-5">
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-search"></i>
+                                </span>
+                                <input type="text" class="form-control" placeholder="Search company or position...">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <select class="form-select">
+                                <option>All Status</option>
+                                <option>Accepted</option>
+                                <option>Pending</option>
+                                <option>Rejected</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn-outline-primary w-100">
+                                Filter
+                            </button>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn-outline-secondary w-100">
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLE -->
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Position</th>
+                                    <th>Location</th>
+                                    <th>Status</th>
+                                    <th>Date Applied</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="applicationTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-section py-4 border-top bg-body-tertiary">
+        <div class="container text-center">
+            <small>© 2026 InternTrack System</small>
+        </div>
+    </footer>
+
+    <!-- APPLICATION MODAL -->
+    <div class="modal fade" id="applicationModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4">
+            <div class="mb-3">
+                <label class="form-label">Company Name</label>
+                <input type="text" class="form-control" id="companyInput">
+                <div class="invalid-feedback">
+                    Company name is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Industry</label>
+                <input type="text" class="form-control" id="industryInput">
+                <div class="invalid-feedback">
+                    Industry is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Position</label>
+                <input type="text" class="form-control" id="positionInput">
+                <div class="invalid-feedback">
+                    Position is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Location</label>
+                <input type="text" class="form-control" id="locationInput">
+                <div class="invalid-feedback">
+                    Location is required.
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Status</label>
+                <select class="form-select" id="statusInput">
+                    <option>Pending</option>
+                    <option>Interview</option>
+                    <option>Accepted</option>
+                    <option>Rejected</option>
+                </select>
+            </div>
+                <div class="modal-footer border-0">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button class="btn btn-primary" id="saveApplicationBtn">
+                        Save Application
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW APPLICATIONS -->
+    <div class="modal fade" id="viewApplicationModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Application Details</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <p><strong>Company:</strong> <span id="viewCompany"></span></p>
+
+                    <p><strong>Industry:</strong> <span id="viewIndustry"></span></p>
+
+                    <p><strong>Position:</strong> <span id="viewPosition"></span></p>
+
+                    <p><strong>Location:</strong> <span id="viewLocation"></span></p>
+
+                    <p><strong>Status:</strong> <span id="viewStatus"></span></p>
+
+                    <p><strong>Date Applied:</strong> <span id="viewDate"></span></p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- EDIT APPLICATION -->
+     <div class="modal fade" id="editApplicationModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Application</h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+
+                    <input type="hidden" id="editApplicationId">
+
+                    <div class="mb-2">
+                        <input class="form-control" id="editCompany">
+                    </div>
+
+                    <div class="mb-2">
+                        <input class="form-control" id="editPosition">
+                    </div>
+
+                    <div class="mb-2">
+                        <input class="form-control" id="editLocation">
+                    </div>
+
+                    <div class="mb-2">
+                        <select class="form-select" id="editStatus">
+                            <option>Pending</option>
+                            <option>Interview</option>
+                            <option>Accepted</option>
+                            <option>Rejected</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-primary" onclick="saveApplicationEdit()">
+                        Save
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="saveToast" class="toast align-items-center text-bg-success border-0" role="alert">
+            <div class="d-flex">
+                <div class="toast-body">
+                    Application saved successfully.
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST SCRIPT -->
+    <script>
+    const saveApplicationBtn = document.getElementById('saveApplicationBtn');
+
+    saveApplicationBtn.addEventListener('click', () => {
+
+        const companyInput = document.getElementById("companyInput");
+        const industryInput = document.getElementById("industryInput");
+        const positionInput = document.getElementById("positionInput");
+        const locationInput = document.getElementById("locationInput");
+        const statusInput = document.getElementById("statusInput");
+
+        const company = companyInput.value.trim();
+        const industry = industryInput.value.trim();
+        const position = positionInput.value.trim();
+        const location = locationInput.value.trim();
+
+        let isValid = true;
+
+        // RESET validation
+        [companyInput, industryInput, positionInput, locationInput]
+        .forEach(input => {
+            input.classList.remove("is-invalid");
+        });
+        // CHECK validation
+        if(company === "") {
+            companyInput.classList.add("is-invalid");
+            isValid = false;
+        }
+        if(industry === "") {
+            industryInput.classList.add("is-invalid");
+            isValid = false;
+        }
+        if(position === "") {
+            positionInput.classList.add("is-invalid");
+            isValid = false;
+        }
+        if(location === "") {
+            locationInput.classList.add("is-invalid");
+            isValid = false;
+        }
+
+        // STOP IF INVALID
+        if(!isValid) {
+            return;
+        }
+        const newApplication = {
+            id: Date.now(),
+            company,
+            industry,
+            position,
+            location,
+            status: statusInput.value,
+            date: new Date().toISOString()
+        };
+        applications.push(newApplication);
+        localStorage.setItem(
+            "applications",
+            JSON.stringify(applications)
+        );
+        renderApplications();
+        bootstrap.Modal.getInstance(
+            document.getElementById('applicationModal')
+        ).hide();
+        const toast = new bootstrap.Toast(
+            document.getElementById('saveToast')
+        );
+        toast.show();
+
+        //CLEAR form
+        companyInput.value = "";
+        industryInput.value = "";
+        positionInput.value = "";
+        locationInput.value = "";
+        statusInput.value = "Pending";
+    });
+    </script>
+
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    let applications = JSON.parse(
+        localStorage.getItem("applications")
+    ) || [
+        {
+            id: 1,
+            company: "Intel",
+            industry: "Technology",
+            position: "Frontend Developer Intern",
+            location: "Penang",
+            status: "Pending",
+            date: "12 May 2026"
+        },
+        {
+            id: 2,
+            company: "Shopee",
+            industry: "E-Commerce",
+            position: "UI/UX Design Intern",
+            location: "Kuala Lumpur",
+            status: "Accepted",
+            date: "10 May 2026"
+        },
+        {
+            id: 3,
+            company: "Petronas",
+            industry: "Energy",
+            position: "System Analyst Intern",
+            location: "Terengganu",
+            status: "Rejected",
+            date: "08 May 2026"
+        }
+    ];
+    </script>
+
+    <!-- VIEW APPLICATION JS-->
+     <script>
+    function viewApplication(id) {
+
+        const app = applications.find(a => a.id === id);
+
+        document.getElementById("viewCompany").innerText = app.company;
+        document.getElementById("viewIndustry").innerText = app.industry;
+        document.getElementById("viewPosition").innerText = app.position;
+        document.getElementById("viewLocation").innerText = app.location;
+        document.getElementById("viewStatus").innerText = app.status;
+        document.getElementById("viewDate").innerText = app.date;
+
+        new bootstrap.Modal(
+            document.getElementById("viewApplicationModal")
+        ).show();
+    }
+    </script>
+
+    <!-- EDIT APPLICATION JS -->
+     <script>
+    function editApplication(id) {
+
+        const app = applications.find(a => a.id === id);
+
+        document.getElementById("editApplicationId").value = app.id;
+        document.getElementById("editCompany").value = app.company;
+        document.getElementById("editPosition").value = app.position;
+        document.getElementById("editLocation").value = app.location;
+        document.getElementById("editStatus").value = app.status;
+
+        new bootstrap.Modal(
+            document.getElementById("editApplicationModal")
+        ).show();
+    }
+
+    function saveApplicationEdit() {
+
+        const id = parseInt(
+            document.getElementById("editApplicationId").value
+        );
+
+        const app = applications.find(a => a.id === id);
+
+        app.company = document.getElementById("editCompany").value;
+        app.position = document.getElementById("editPosition").value;
+        app.location = document.getElementById("editLocation").value;
+        app.status = document.getElementById("editStatus").value;
+
+        renderApplications();
+        localStorage.setItem(
+            "applications",
+            JSON.stringify(applications)
+        );
+
+        bootstrap.Modal.getInstance(
+            document.getElementById("editApplicationModal")
+        ).hide();
+    }
+    </script>
+
+    <script>
+    function renderApplications() {
+        const tableBody = document.getElementById("applicationTableBody");
+        tableBody.innerHTML = "";
+        applications.forEach(app => {
+            let badgeClass = "bg-warning text-dark";
+            if(app.status === "Accepted") {
+                badgeClass = "bg-success";
+            }
+            if(app.status === "Rejected") {
+                badgeClass = "bg-danger";
+            }
+            if(app.status === "Interview") {
+                badgeClass = "bg-info";
+            }
+            tableBody.insertAdjacentHTML("beforeend", `
+            <tr>
+                <td>
+                    <div class="fw-semibold">${app.company}</div>
+                    <small class="text-muted">${app.industry}</small>
+                </td>
+                <td>${app.position}</td>
+                <td>${app.location}</td>
+                <td>
+                    <span class="badge ${badgeClass}">
+                        ${app.status}
+                    </span>
+                </td>
+                <td>${app.date}</td>
+                <td>
+                    <button class="btn btn-sm btn-outline-primary me-1"
+                        onclick="viewApplication(${app.id})">
+                        <i class="bi bi-eye"></i>
+                    </button>
+                    <button class="btn btn-sm btn-outline-secondary"
+                        onclick="editApplication(${app.id})">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                </td>
+            </tr>
+            `);
+        });
+    }
+    renderApplications();
+    </script>
+
+
+    <!-- DARK MODE -->
+    <script>
+
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const htmlElement = document.documentElement;
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-bs-theme', currentTheme);
+        updateIcon(currentTheme);
+        darkModeToggle.addEventListener('click', ()=> {
+            const currentTheme = htmlElement.getAttribute('data-bs-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            htmlElement.setAttribute('data-bs-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+        function updateIcon(theme) {
+            darkModeIcon.className = theme === 'dark'
+                ? 'bi bi-sun-fill'
+                : 'bi bi-moon-stars-fill';
+        }
+    </script>
+
+    
+    
+</body>
+</html>

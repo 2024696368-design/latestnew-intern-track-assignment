@@ -1,0 +1,309 @@
+/*LOGIN*/
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-card{
+    width: 950px;
+    max-width: 100%;
+    min-height: 560px;
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.15);
+}
+
+.login-left-side{
+    background: linear-gradient(135deg, #0d6efd, #4f8cff);
+    color: white;
+    padding: 40px;
+}
+
+.logo-wrapper{
+    background: rgba(255,255,255,0.15);
+    padding: 18px;
+    border-radius: 24px;
+    backdrop-filter: blur(10px);
+}
+
+.app-title{
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.app-subtitle{
+    font-size: 1rem;
+    opacity: 0.9;
+    max-width: 300px;
+    line-height: 1.7;
+}
+
+.form-control,
+.input-group-text,
+.btn{
+    border-radius: 12px;
+}
+
+.form-control{
+    padding: 12px;
+}
+
+.input-group-text{
+    background: #f1f3f5;
+}
+
+.login-btn{
+    border-radius: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.login-btn:hover{
+    transform: translateY(-2px);
+}
+
+.forgot-link{
+    font-size: 0.9rem;
+}
+
+@media(max-width: 991px){
+    .login-card{
+        min-height: auto;
+    }
+}
+
+/*DASHBOARD CSS*/
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f7fb;
+}
+
+.activity-item {
+    border-left: 3px solid transparent;
+    padding-left: 10px;
+}
+
+.activity-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 6px;
+    margin-right: 10px;
+}
+
+.navbar-brand{
+    font-size: 1.2rem;
+}
+
+.dashboard-header{
+    position: relative;
+    background:
+        url('header-bg-2.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: rgb(20, 60, 133);
+}
+
+/*LIGHTMODETEXT*/
+.dashboard-header{
+    min-height: 260px;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard-header .dashboard-subtext{
+    color: #0d2c52 !important;
+}
+
+/* DARK MODE */
+/* Only change overlay strength, NOT image */
+[data-bs-theme="dark"] .dashboard-header{
+
+    background:
+        linear-gradient(
+            rgba(2, 6, 23, 0.78),
+            rgba(2, 6, 23, 0.78)
+        ),
+        url('header-bg-1.jpg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* DARK MODE TEXT */
+[data-bs-theme="dark"] .dashboard-header h1{
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .dashboard-header .dashboard-subtext{
+    color: #cbd5e1 !important;
+}
+
+.dashboard-subtext{
+    max-width: 650px;
+    line-height: 1.8;
+}
+
+.dashboard-card{
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.dashboard-card:hover{
+    transform: translateY(-4px);
+}
+
+.icon-box{
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.card{
+    border-radius: 22px;
+}
+
+.activity-dot{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 14px;
+    margin-top: 6px;
+    flex-shrink: 0;
+}
+
+.table th{
+    font-weight: 600;
+}
+
+.footer-section{
+    margin-top: auto;
+}
+
+.dark-mode-toggle{
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0.5rem;
+    color: inherit;
+}
+
+.dark-mode-toggle:hover{
+    opacity: 0.7;
+}
+
+/*DARK MODE HEADER*/
+[data-bs-theme="dark"] .dashboard-header h1{
+    color: #ffffff;
+}
+
+[data-bs-theme="dark"] .dashboard-header .dashboard-subtext{
+    color: #c7d2fe !important;
+}
+
+[data-bs-theme="dark"] .navbar{
+    background-color: #111827 !important;
+}
+
+[data-bs-theme="dark"] .navbar .nav-link,
+[data-bs-theme="dark"] .navbar-brand{
+    color: #f1f5f9 !important;
+}
+
+[data-bs-theme="dark"] .navbar .nav-link.active{
+    color: #93c5fd !important;
+}
+
+[data-bs-theme="dark"] body{
+    background-color: #0f172a;
+}
+
+[data-bs-theme="dark"] .card{
+    background-color: #1e293b;
+    color: #f8fafc;
+}
+
+[data-bs-theme="dark"] .table{
+    color: #f8fafc;
+}
+
+[data-bs-theme="dark"] .text-muted{
+    color: #cbd5e1 !important;
+}
+
+[data-bs-theme="dark"] .footer-section{
+    background-color: #111827 !important;
+}
+
+@media(max-width: 768px){
+    .dashboard-header{
+        text-align: center;
+    }
+    .dashboard-header .btn{
+        width: 100%;
+    }
+}
+
+/*APPLICATION&TASK*/
+.task-card{
+    transition: 0.3s ease;
+    border-radius: 22px;
+}
+
+.task-card:hover{
+    transform: translateY(-5px);
+}
+
+.table td,
+.table th{
+    vertical-align: middle;
+}
+
+.badge{
+    padding: 8px 12px;
+    border-radius: 12px;
+}
+
+.form-check-input{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/*PROFILE*/
+.profile-avatar{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0d6efd, #5b9cff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+    box-shadow: 0 10px 25px rgba(13,110,253,0.25);
+}
+
+.modal-content{
+    border-radius: 24px;
+}
+
+.toast{
+    border-radius: 16px;
+}
+
+.progress{
+    border-radius: 999px;
+}
+
+.progress-bar{
+    border-radius: 999px;
+}
